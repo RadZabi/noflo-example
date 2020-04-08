@@ -1,0 +1,14 @@
+{
+    "caseSensitive": false,
+    "properties": {
+        "name": "flowhub",
+        "environment": {
+            "type": "noflo-nodejs"
+        }
+    },
+    "inports": {},
+    "outports": {},
+    "groups": [],
+    "processes": {},
+    "connections": []
+}
