@@ -1,0 +1,56 @@
+{
+    "caseSensitive": false,
+    "properties": {
+        "name": "readfile",
+        "description": "df",
+        "icon": "cog",
+        "environment": {
+            "type": "noflo-nodejs"
+        }
+    },
+    "inports": {},
+    "outports": {},
+    "groups": [],
+    "processes": {
+        "filesystem/ReadFile_en1rl": {
+            "component": "filesystem/ReadFile",
+            "metadata": {
+                "label": "ReadFile",
+                "x": 396,
+                "y": 324,
+                "width": 72,
+                "height": 72
+            }
+        },
+        "core/Output_ultlp": {
+            "component": "core/Output",
+            "metadata": {
+                "label": "Output",
+                "x": 576,
+                "y": 360,
+                "width": 72,
+                "height": 72
+            }
+        }
+    },
+    "connections": [
+        {
+            "src": {
+                "process": "filesystem/ReadFile_en1rl",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "core/Output_ultlp",
+                "port": "in"
+            },
+            "metadata": {}
+        },
+        {
+            "data": "package.json",
+            "tgt": {
+                "process": "filesystem/ReadFile_en1rl",
+                "port": "in"
+            }
+        }
+    ]
+}
