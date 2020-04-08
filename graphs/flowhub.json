@@ -1,0 +1,17 @@
+{
+  "id": "c310535a-355a-4310-b160-40f4991fc3c6",
+  "label": "noflo-examples NoFlo runtime",
+  "secret": "radhouene",
+  "permissions": {
+    "radhouene": [
+      "protocol:component",
+      "protocol:runtime",
+      "protocol:graph",
+      "protocol:network",
+      "component:getsource",
+      "component:setsource"
+    ]
+  },
+  "ide": "http://localhost:9999",
+  "registry": "http://localhost"
+}
