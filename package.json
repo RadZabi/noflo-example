@@ -6,8 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start-server": "noflo-nodejs --registry \"http://localhost\" --ide \"http://localhost:9999\" --secret \"radhouene\" --capture-output",
-    "start-graph":"noflo-nodejs --registry \"http://localhost\" --ide \"http://localhost:9999\" --secret \"radhouene\" --capture-output --graph \"graphs/readfile.json\""
-
+    "start-graph": "noflo-nodejs --registry \"http://localhost\" --ide \"http://localhost:9999\" --secret \"radhouene\" --capture-output --graph \"graphs/readfile.json\""
   },
   "repository": {
     "type": "git",
@@ -23,6 +22,8 @@
     "noflo": "^1.1.3",
     "noflo-core": "^0.6.1",
     "noflo-filesystem": "^2.0.1",
-    "noflo-nodejs": "^0.11.1"
+    "noflo-nodejs": "^0.11.1",
+    "noflo-objects": "^0.5.0",
+    "noflo-strings": "^0.4.0"
   }
 }

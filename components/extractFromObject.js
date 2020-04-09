@@ -1,67 +1,50 @@
-const noflo = require('noflo');
+var noflo;
 
-exports.getComponent = () => {
-    const c = new noflo.Component({
-        description: 'Extract vlaue from Object by key',
-        inPorts: {
-          in: {
-            datatype: 'string',
-            description: 'json to analyse as String',
-            required: true,
-          },
-          key: {
-            datatype: 'string',
-            description: 'key name to extract from object',
-            required: true,
-          },
-        },
-        outPorts: {
-          out: {
-            datatype: 'string',
-            description: 'the data wrapped in brackets',
-            required: true,
-          },
-          error: {
-            datatype: 'string',
-            description: 'log error isf exist',
-          },
-        },
-      });
+noflo = require('noflo');
+
+exports.getComponent = function() {
+  var c = new noflo.Component({
+    description: 'Given a key, return only the value matching that key in the incoming object'
+  });
+  c.inPorts = new noflo.InPorts({
+    in: {
+      datatype: 'object',
+      description: 'An object to extract property from',
+      required: true
+    },
+    key: {
+      datatype: 'string',
+      description: 'Property names to extract (one property per IP)',
+    }
+  });
+  c.outPorts = new noflo.OutPorts({
+    out: {
+      datatype: 'all',
+      description: 'Values of the property extracted (each value sent as a separate IP)'
+    }
+  });
+  return c.process(function(input, output) {
+    var data, i, key, keys, len, value;
+    if (!input.has('in')) {
+      return;
+    }
+  
+    data = input.getData('in');
+    key = input.getData('key');
+    value = data;
     
-      c.process((input, output) => {
-        if (!input.hasData('in')) { return; }
-        
-
-        const object = input.getData('object');
-        
-        output.send({
-            out: new noflo.IP('openBracket'),
-        });
-        
-        if (!input.hasData('key')) { 
-            output.send({
-                out: new noflo.IP('data', object),
-            });  
-        }
-        const key = input.getData('key');
-        
-        if (!(key in object)){
-            output.send({
-                error: new noflo.IP('data', 'Key wa not notfound on object'),
-            });
-        }else{
-            let content = object[`${key}`]
-            output.send({
-                out: new noflo.IP('data', content),
-            });
-        } 
-
-        output.send({
-            out: new noflo.IP('closeBracket'),
-          });
-        output.done();
-
-      });
+    var content = JSON.parse(data);
     
-      return c;
-}
+    if (!(key in content)){
+      output.send({
+          out:'Key was not notfound on object',
+      });
+    }else{
+      value = content[`${key}`]
+      output.send({
+          out: value
+      });
+    } 
+    return output.done();
+  });
+};
