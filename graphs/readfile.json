@@ -31,6 +31,16 @@
                 "width": 72,
                 "height": 72
             }
+        },
+        "examples/extractObject_xg5c1": {
+            "component": "examples/extractObject",
+            "metadata": {
+                "label": "extractObject",
+                "x": 468,
+                "y": 432,
+                "width": 72,
+                "height": 72
+            }
         }
     },
     "connections": [
