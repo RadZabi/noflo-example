@@ -42,8 +42,7 @@
             "tgt": {
                 "process": "core/Output_ultlp",
                 "port": "in"
-            },
-            "metadata": {}
+            }
         },
         {
             "data": "package.json",
