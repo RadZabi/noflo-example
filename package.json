@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start-server": "noflo-nodejs --registry \"http://localhost\" --ide \"http://localhost:9999\" --secret \"radhouene\""
+    "start-server": "noflo-nodejs --registry \"http://localhost\" --ide \"http://localhost:9999\" --secret \"radhouene\" --capture-output",
+    "start-graph":"noflo-nodejs --registry \"http://localhost\" --ide \"http://localhost:9999\" --secret \"radhouene\" --capture-output --graph \"graphs/readfile.json\""
+
   },
   "repository": {
     "type": "git",
