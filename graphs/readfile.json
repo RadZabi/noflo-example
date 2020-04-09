@@ -32,12 +32,12 @@
                 "height": 72
             }
         },
-        "examples/extractObject_xg5c1": {
-            "component": "examples/extractObject",
+        "examples/extractFromObject_jweq0": {
+            "component": "examples/extractFromObject",
             "metadata": {
-                "label": "extractObject",
-                "x": 468,
-                "y": 432,
+                "label": "extractFromObject",
+                "x": 504,
+                "y": 216,
                 "width": 72,
                 "height": 72
             }
@@ -46,19 +46,38 @@
     "connections": [
         {
             "src": {
-                "process": "filesystem/ReadFile_en1rl",
+                "process": "examples/extractFromObject_jweq0",
                 "port": "out"
             },
             "tgt": {
                 "process": "core/Output_ultlp",
                 "port": "in"
-            }
+            },
+            "metadata": {}
+        },
+        {
+            "src": {
+                "process": "filesystem/ReadFile_en1rl",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "examples/extractFromObject_jweq0",
+                "port": "in"
+            },
+            "metadata": {}
         },
         {
             "data": "package.json",
             "tgt": {
                 "process": "filesystem/ReadFile_en1rl",
                 "port": "in"
+            }
+        },
+        {
+            "data": "scripts",
+            "tgt": {
+                "process": "examples/extractFromObject_jweq0",
+                "port": "key"
             }
         }
     ]
